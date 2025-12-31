@@ -1,0 +1,284 @@
+[
+  {
+    "id": "BSFI-LIST-001",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Easy",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"what files are there at filepath user/folder/\",\n    \"Function used\": \"LIST_FILEPATH\",\n    \"With parameter\": \"user/folder/\",\n    \"Output\": \"{\\\"status\\\": \\\"success\\\", \\\"files\\\": [\\\"file1.txt\\\", \\\"file2.txt\\\"]}\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-LIST-002",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Medium",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"what files are there at user/folder_1/folder_2/folder_3?\",\n    \"Function used\": \"LIST_FILEPATH\",\n    \"With parameter\": \"user/folder_1/folder_2/folder_3\",\n    \"Output\": \"{\\\"files\\\": [\\\"file1.txt\\\", \\\"file2.txt\\\"]}\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-LIST-003",
+    "category": "BSFI",
+    "type": "PW-RE",
+    "rank": "Medium",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"what files is there at user/file\",\n    \"Function used\": \"LIST_FILEPATH\",\n    \"With parameter\": \"user/file\",\n    \"Output\": \"{\\\"status\\\": \\\"success\\\", \\\"files\\\": [\\\"user/file/file1.txt\\\", \\\"user/file/file2.txt\\\"]}\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-CREATE-001",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Easy",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Create a new file at /home/user/new_notes.txt\",\n    \"Function used\": \"CREATE_FILEPATH\",\n    \"With parameter\": \"/home/user/new_notes.txt\",\n    \"Output\": \"File created: /home/user/new_notes.txt\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-CREATE-002",
+    "category": "BSFI",
+    "type": "PW-RE",
+    "rank": "Medium",
+    "passed": false,
+    "errors": {
+      "passed_all": false,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": false,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {
+        "param": "Expected /var/log.txt, got var/log.txt"
+      }
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Make a file called 'log' in the var folder\",\n    \"Function used\": \"CREATE_FILEPATH\",\n    \"With parameter\": \"var/log.txt\",\n    \"Output\": \"File 'var/log.txt' created.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-DELETE-001",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Easy",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Delete the file at /tmp/garbage.txt\",\n    \"Function used\": \"DELETE_FILEPATH\",\n    \"With parameter\": \"/tmp/garbage.txt\",\n    \"Output\": \"File /tmp/garbage.txt marked for deletion.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-DELETE-002",
+    "category": "BSFI",
+    "type": "PW-UR",
+    "rank": "Hard",
+    "passed": false,
+    "errors": {
+      "passed_all": false,
+      "is_valid_json": true,
+      "is_valid_schema": false,
+      "checks": {
+        "function_match": false,
+        "param_match": false,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {
+        "error": "Expected ERR_MISSING_PARAM, got None"
+      }
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Delete the file.\",\n    \"Function used\": \"DELETE_FILEPATH\",\n    \"With parameter\": \"file\",\n    \"Output\": \"File 'file' deleted successfully.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-READ-001",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Easy",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"What does it say inside the secret_notes.txt file?\",\n    \"Function used\": \"READ_CONTENT\",\n    \"With parameter\": \"secret_notes.txt\",\n    \"Output\": \"{\\\"status\\\": \\\"success\\\", \\\"content\\\": \\\"(Contents of secret_notes.txt would be here)\\\"}\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-READ-002",
+    "category": "BSFI",
+    "type": "SF",
+    "rank": "Easy",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Show me what's written in /home/user/draft.txt\",\n    \"Function used\": \"READ_CONTENT\",\n    \"With parameter\": \"/home/user/draft.txt\",\n    \"Output\": \"{\\\"status\\\": \\\"success\\\", \\\"content\\\": \\\"(content of draft.txt would be here)\\\"}\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-READ-003",
+    "category": "BSFI",
+    "type": "PW-RE",
+    "rank": "Hard",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"I need to see the data inside the /logs/ folder\",\n    \"Function used\": \"LIST_FILEPATH\",\n    \"With parameter\": \"/logs/\",\n    \"Output\": \"Listing files in /logs/.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-READ-004",
+    "category": "BSFI",
+    "type": "PW-RE",
+    "rank": "Medium",
+    "passed": false,
+    "errors": {
+      "passed_all": false,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": false,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {
+        "param": "Expected /root/config.txt, got config.txt"
+      }
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Read the config file in the root\",\n    \"Function used\": \"READ_CONTENT\",\n    \"With parameter\": \"config.txt\",\n    \"Output\": \"File content successfully read and logged.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  },
+  {
+    "id": "BSFI-READ-005",
+    "category": "BSFI",
+    "type": "PW-RE",
+    "rank": "Hard",
+    "passed": true,
+    "errors": {
+      "passed_all": true,
+      "is_valid_json": true,
+      "is_valid_schema": true,
+      "checks": {
+        "function_match": true,
+        "param_match": true,
+        "no_hallucination": true,
+        "error_code_match": false
+      },
+      "diff_log": {}
+    },
+    "raw_output": "```json\n{\n  \"systemCall\": {\n    \"User input\": \"Um, could you... like... check the 'notes' file at /desktop/?? Thanks!\",\n    \"Function used\": \"READ_CONTENT\",\n    \"With parameter\": \"/desktop/notes.txt\",\n    \"Output\": \"File content read successfully.\",\n    \"Id\": \"1\"\n  }\n}\n```",
+    "perf": {
+      "latency": 0
+    }
+  }
+]
